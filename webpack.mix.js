@@ -1,6 +1,19 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 
+require('tailwind-not-last-child')({
+  notable: [
+    {
+      type: 'margin',
+      char: 'm'
+    },
+    {
+      type: 'padding',
+      char: 'p'
+    }
+  ]
+});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

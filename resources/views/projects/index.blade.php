@@ -7,15 +7,23 @@
         <a class="button " href="/projects/create">New Project</a>
     </header>
 
-    <main class="flex flex-wrap -mx-4">
+    <main class="">
         @forelse($projects as $project)
-            <div class="w-1/3 p-4">
-                <div class="card h-64">
-                    @include('projects.card')
+            @if($loop->first)
+                <ul class="flex flex-wrap -mx-4">
+            @endif
+            <li class="w-1/3 p-4">
+                <div class="">
+                    <div class="card h-64">
+                        @include('projects.card')
+                    </div>
                 </div>
-            </div>
+            </li>
+            @if($loop->last)
+                </ul>
+            @endif
         @empty
-            <li>No projects yet.</li>
+            <span>No projects yet.</span>
         @endforelse
     </main>
 @endSection

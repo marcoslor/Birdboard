@@ -27,7 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Project extends Model
 {
+    use RecordsActivity;
     protected $guarded = [];
+
     public function path(){
         return "/projects/".$this->id;
     }
@@ -38,6 +40,12 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
     public function addTask($body){
-        return $this->tasks()->create(compact('body'));
+        $task = $this->tasks()->create(compact('body'));
+        return $task;
     }
+
+    public function activity(){
+        return $this->hasMany(Activity::class)->latest();
+    }
+
 }

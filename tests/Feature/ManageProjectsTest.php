@@ -18,8 +18,9 @@ class ManageProjectsTest extends TestCase
     {
         $project = factory('App\Project')->create();
 
-        $this->get('/projects/create')->assertRedirect('login');
-        $this->get('/projects')->assertRedirect('login');
+        $this->get('/projects/create') ->assertRedirect('login');
+        $this->get($project->path().'/edit')->assertRedirect('login');
+        $this->get('/projects/edit')->assertRedirect('login');
         $this->get($project->path())->assertRedirect('login');
         $this->post('/projects', $project->toArray())->assertRedirect('login');
     }
@@ -45,14 +46,6 @@ class ManageProjectsTest extends TestCase
         $this->post('/projects', $attributes)->assertSessionHasErrors('title');
     }
 
-    /** @test */
-    public function a_project_requires_a_description()
-    {
-        $this->signIn();
-
-        $attributes = factory('App\Project')->raw(['description'=>'']);
-        $this->post('/projects', $attributes)->assertSessionHasErrors('description');
-    }
 
     /** @test */
     public function a_user_can_view_their_project()
@@ -89,9 +82,20 @@ class ManageProjectsTest extends TestCase
     {
         $project = ProjectFactory::ownedBy($this->signIn())
             ->create();
-
-        $this->patch($project->path(), ['title'=>'changed', 'description'=>'changed','notes'=>'changed'])->assertRedirect($project->path());
+        $this->get($project->path().'/edit')->assertOk();
+        $this->patch($project->path(), ['title'=>'changed', 'description'=>'changed', 'notes'=>'changed'])->assertRedirect($project->path());
         $this->assertDatabaseHas('projects', ['title'=>'changed', 'description'=>'changed','notes'=>'changed']);
+    }
+
+    /** @test */
+    public function a_user_can_update_a_projects_general_notes()
+    {
+        $project = ProjectFactory::ownedBy($this->signIn())
+            ->create();
+
+        $this->get($project->path().'/edit')->assertOk();
+        $this->patch($project->path(), ['notes'=>'changed'])->assertRedirect($project->path());
+        $this->assertDatabaseHas('projects', ['notes'=>'changed']);
     }
 
     /** @test */

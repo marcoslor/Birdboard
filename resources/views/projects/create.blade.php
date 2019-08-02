@@ -1,22 +1,23 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Create a project</h1>
+    <div class="flex w-full">
+        <div class="card m-auto p-12">
+            <form method="POST" action="/projects">
+                @csrf
+                <h1 class="text-2xl text-center mb-4">Create a project</h1>
 
-    <form method="POST" action="/projects">
-        @csrf
+                <label for="title">Title</label>
+                <input class="border rounded block w-full mb-4 mt-2" type="text" name="title" placeholder="Title">
 
-        <div class="">
-            <label for="title">Title</label>
-            <input type="text" name="title" placeholder="Title">
+                <label for="description">Description</label>
+                <textarea class="border rounded block w-full mb-4 mt-2" name="description" id="" cols="100" rows="8"></textarea>
+
+                <div class="flex w-full justify-between mt-8">
+                    <button class="button" type="submit">Submit</button>
+                    <a href="/projects">Cancel</a>
+                </div>
+            </form>
         </div>
-
-        <div class="">
-            <label for="description">Description</label>
-            <textarea name="description" id="" cols="30" rows="10"></textarea>
-        </div>
-
-        <button type="submit">Submit</button>
-        <a href="/projects">Cancel</a>
-    </form>
+    </div>
 @endSection
 
