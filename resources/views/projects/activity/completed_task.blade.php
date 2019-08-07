@@ -1,3 +1,3 @@
 <span>
-    You marked the task: "<u>{{ $activity->subject->body }}</u>" as completed
+    @lang('projects.activity.completed_task', ['user' => $activity->username(), 'task' => $activity->subject->body])
 </span>

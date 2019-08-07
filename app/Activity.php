@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Activity extends Model
 {
@@ -11,11 +13,23 @@ class Activity extends Model
         'changes' => 'array'
     ];
 
-    public function project(){
-        return $this->belongsTo('App\Project');
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
     }
 
-    public function subject(){
+    public function subject(): MorphTo
+    {
         return $this->morphTo();
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function username()
+    {
+        return auth()->id() === $this->user->id ? __('projects.activity.self_ownership') : $this->user->name;
     }
 }
