@@ -2,7 +2,10 @@
 
 namespace App;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Project
@@ -11,34 +14,39 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property int $owner_id
  * @property string $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\User $owner
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereOwnerId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read User $owner
+ * @method static Builder|Project newModelQuery()
+ * @method static Builder|Project newQuery()
+ * @method static Builder|Project query()
+ * @method static Builder|Project whereCreatedAt($value)
+ * @method static Builder|Project whereDescription($value)
+ * @method static Builder|Project whereId($value)
+ * @method static Builder|Project whereOwnerId($value)
+ * @method static Builder|Project whereTitle($value)
+ * @method static Builder|Project whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Project extends Model
 {
     use RecordsActivity;
+    protected static $recordableEvents = ['created', 'updated'];
+
     protected $guarded = [];
 
     public function path(){
         return "/projects/".$this->id;
     }
+
     public function owner(){
         return $this->belongsTo(User::class);
     }
+
     public function tasks(){
         return $this->hasMany(Task::class);
     }
+
     public function addTask($body){
         $task = $this->tasks()->create(compact('body'));
         return $task;

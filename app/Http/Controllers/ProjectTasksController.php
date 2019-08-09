@@ -13,10 +13,12 @@ class ProjectTasksController extends Controller
 
         request()->validate(['body'=>'required']);
         $project->addTask(request('body'));
+
         return redirect($project->path());
     }
 
-    public function update(Task $task){
+    public function update(Project $project, Task $task)
+    {
         $this->authorize('update', $task->project);
 
         $task->update(request()->validate(['body' => 'required']));

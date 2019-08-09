@@ -12,22 +12,26 @@
 */
 
 
-Route::get('/', function () {
+Route::get('/', static function () {
     return redirect('/projects');
 });
 
-Route::group(['middleware'=>'auth'], function (){
+Route::group(['middleware' => 'auth'], static function () {
 
-    Route::get('/projects','ProjectsController@index');
-    Route::get('/projects/create','ProjectsController@create');
-    Route::get('/projects/{project}','ProjectsController@show');
-    Route::get('/projects/{project}/edit','ProjectsController@edit');
+    Route::resource('projects', 'ProjectsController');
+//    Route::get('/projects','ProjectsController@index');
+//    Route::get('/projects/create','ProjectsController@create');
+//    Route::get('/projects/{project}','ProjectsController@show');
+//    Route::get('/projects/{project}/edit','ProjectsController@edit');
+//
+//    Route::post('/projects','ProjectsController@store');
+//
+//    Route::delete('/projects/{project}', 'ProjectsController@destroy');
+//
+//    Route::patch('/projects/{project}','ProjectsController@update');
 
     Route::post ('/projects/{project}/tasks','ProjectTasksController@store');
-    Route::post('/projects','ProjectsController@store');
-
-    Route::patch('/tasks/{task}','ProjectTasksController@update');
-    Route::patch('/projects/{project}','ProjectsController@update');
+    Route::patch('/projects/{project}/tasks/{task}', 'ProjectTasksController@update');
 });
 
 Auth::routes();

@@ -110,9 +110,11 @@ class TriggerActivityTest extends TestCase
             'body' => 'changed',
             'completed' => false
         ]);
+
         $project->refresh();
 
         $this->assertCount(4, $project->activity);
+
         $this->assertEquals('incompleted_task', $project->activity->last()->description);
     }
 

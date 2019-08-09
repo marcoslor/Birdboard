@@ -2,3 +2,10 @@
     <a href="{{$project->path()}}">{{$project->title}}</a>
 </h3>
 <p class="text-gray-500">{{Str::limit($project->description, 100)}}</p>
+
+<footer class="text-right">
+    <form action="{{$project->path()}}" method="post">
+        @method('DELETE')
+        <button type="submit">Delete</button>
+    </form>
+</footer>

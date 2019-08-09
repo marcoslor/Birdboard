@@ -14,11 +14,11 @@ class Task extends Model
     protected $casts = ['completed' => 'boolean'];
 
     public function project(){
-        return $this->belongsTo(\App\Project::class);
+        return $this->belongsTo(Project::class);
     }
 
     public function path(){
-        return '/tasks/'.$this->id;
+        return $this->project->path() . '/tasks/' . $this->id;
     }
 
     public function complete(){

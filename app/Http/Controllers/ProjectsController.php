@@ -7,6 +7,15 @@ use App\Project;
 
 class ProjectsController extends Controller
 {
+    protected function validateRequest()
+    {
+        return request()->validate([
+            'title' => 'sometimes|required',
+            'description' => 'sometimes|nullable',
+            'notes' => 'sometimes|nullable'
+        ]);
+    }
+
     public function index(){
         $projects = auth()->user()->projects;
         return view('projects.index')->with('projects',$projects);
@@ -44,11 +53,11 @@ class ProjectsController extends Controller
         return view('projects.edit')->with('project',$project);
     }
 
-    protected function validateRequest(){
-        return request()->validate([
-            'title'=>'sometimes|required',
-            'description'=>'sometimes|nullable',
-            'notes'=>'sometimes|nullable'
-        ]);
+    public function destroy(Project $project)
+    {
+        $this->authorize('update', $project);
+
+        $project->delete();
+        return redirect('/projects');
     }
 }

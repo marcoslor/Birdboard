@@ -14,7 +14,7 @@ class ManageProjectsTest extends TestCase
     use WithFaker, RefreshDatabase;
 
     /** @test */
-    public function guests_cannot_manage_projects()
+    public function guests_cannot_manage_projects(): void
     {
         $project = factory('App\Project')->create();
 
@@ -26,7 +26,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    public function an_authenticated_user_cannot_view_the_projects_of_others()
+    public function an_authenticated_user_cannot_view_the_projects_of_others(): void
     {
         //Creates user and signs it in
         $this->signIn();
@@ -34,11 +34,11 @@ class ManageProjectsTest extends TestCase
         //creates project with user_id
         $project = factory('App\Project')->create();
 
-        $this->get($project->path())->assertStatus(403);
+        $this->get($project->path())->assertForbidden();
     }
 
     /** @test */
-    public function a_project_requires_a_title()
+    public function a_project_requires_a_title(): void
     {
         $this->signIn();
 
@@ -48,7 +48,7 @@ class ManageProjectsTest extends TestCase
 
 
     /** @test */
-    public function a_user_can_view_their_project()
+    public function a_user_can_view_their_project(): void
     {
         $project = ProjectFactory::ownedBy($this->signIn())
             ->withTasks(1)
@@ -58,7 +58,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_create_a_project()
+    public function a_user_can_create_a_project(): void
     {
         $this->withoutExceptionHandling();
         $this->signIn();
@@ -78,7 +78,42 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_update_a_project()
+    public function a_user_can_delete_a_project(): void
+    {
+        $this->withoutExceptionHandling();
+        $project = ProjectFactory::create();
+
+        $this->actingAs($project->owner)->delete($project->path())->assertRedirect('/projects');
+
+        $this->assertNull($project->fresh());
+    }
+
+    /** @test */
+    public function guests_cannot_delete_a_project(): void
+    {
+        //$this->withoutExceptionHandling();
+        $project = ProjectFactory::create();
+
+        $this->delete($project->path())->assertRedirect('/login');
+
+        $this->assertNotNull($project->fresh());
+    }
+
+
+    /** @test */
+    public function users_can_only_delete_their_projects(): void
+    {
+        $user = factory('App\User')->create(['id' => 12]);
+        //creates project with user_id
+        $project = ProjectFactory::ownedBy($user)->create();
+
+        $this->signIn();
+        $this->delete($project->path())->assertForbidden();
+        $this->assertDatabaseHas('projects', ['id' => $project->id]);
+    }
+
+    /** @test */
+    public function a_user_can_update_a_project(): void
     {
         $project = ProjectFactory::ownedBy($this->signIn())
             ->create();
@@ -88,7 +123,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_update_a_projects_general_notes()
+    public function a_user_can_update_a_projects_general_notes(): void
     {
         $project = ProjectFactory::ownedBy($this->signIn())
             ->create();
@@ -99,7 +134,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    public function an_authenticated_user_cannot_update_others_project()
+    public function an_authenticated_user_cannot_update_others_project(): void
     {
         $this->signIn();
         factory('App\User')->create(['id'=>12]);
@@ -107,7 +142,7 @@ class ManageProjectsTest extends TestCase
         //creates project with user_id
         $project = factory('App\Project')->create(['owner_id'=>12]);
 
-        $this->patch($project->path(), ['notes'=>'changed'])->assertStatus(403);
+        $this->patch($project->path(), ['notes' => 'changed'])->assertForbidden();
         $this->assertDatabaseMissing('projects', ['notes'=>'changed']);
     }
 
