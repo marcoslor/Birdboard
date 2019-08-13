@@ -28,7 +28,7 @@ class ProjectFactory
      * @param int $count
      * @return $this
      */
-    public function withTasks($count)
+    public function withTasks($count): self
     {
         $this->tasksCount = $count;
 
@@ -41,7 +41,7 @@ class ProjectFactory
      * @param User $user
      * @return $this
      */
-    public function ownedBy($user)
+    public function ownedBy($user): self
     {
         $this->user = $user;
 
