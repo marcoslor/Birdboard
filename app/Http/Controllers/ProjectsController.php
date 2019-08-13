@@ -16,17 +16,21 @@ class ProjectsController extends Controller
         ]);
     }
 
-    public function index(){
-        $projects = auth()->user()->projects;
+    public function index()
+    {
+        $projects = auth()->user()->avaliableProjects();
         return view('projects.index')->with('projects',$projects);
     }
 
-    public function show(Project $project){
+    public function show(Project $project)
+    {
         $this->authorize('update', $project);
 
         return view('projects.show')->with('project',$project);
     }
-    public function store(){
+
+    public function store()
+    {
         //validate
         $attributes = $this->validateRequest();
 
@@ -37,11 +41,13 @@ class ProjectsController extends Controller
         return redirect($project->path());
     }
 
-    public function create(){
+    public function create()
+    {
         return view('projects.create');
     }
 
-    public function update(Project $project){
+    public function update(Project $project)
+    {
         $this->authorize('update', $project);
 
         $attributes = $this->validateRequest();
@@ -49,7 +55,8 @@ class ProjectsController extends Controller
         return redirect($project->path());
     }
 
-    public function edit(Project $project){
+    public function edit(Project $project)
+    {
         return view('projects.edit')->with('project',$project);
     }
 

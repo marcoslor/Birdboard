@@ -8,7 +8,6 @@ use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-
 class ManageProjectsTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
@@ -146,5 +145,14 @@ class ManageProjectsTest extends TestCase
         $this->assertDatabaseMissing('projects', ['notes'=>'changed']);
     }
 
+    /** @test */
+    public function a_user_can_see_all_the_projects_they_participate_in(): void
+    {
+        $invitee = $this->signIn(factory('App\User')->create(['id' => 1]));
+        $project = tap(ProjectFactory::ownedBy(factory('App\User')->create(['id' => 2]))->create())
+            ->invite($invitee);
+
+        $this->get('/projects')->assertSee($project->title);
+    }
 
 }
