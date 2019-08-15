@@ -1,16 +1,28 @@
 @extends('layouts.app')
 @section('content')
     <div id="task-app">
-        <header class="flex items-end justify-between mb-4 py-4">
-            <p class="h2 text-gray-600 truncate"><a href="/projects">My Projects</a> / {{$project->title}}</p>
-            <a class="button ml-2" href="/projects/create">New Project</a>
+        <header class="flex justify-between mb-4 py-4">
+            <p class="h2 text-gray-600"><a href="/projects">My Projects</a> / {{ $project->title }}</p>
+            <div class="inline-flex">
+                <ul class="inline-flex">
+                    @foreach($project->members as $member)
+                        <li class="mx-1">
+                            <img src="{{ $member->gravatarUrl() }}" class="rounded-full" alt="">
+                        </li>
+                    @endforeach
+                    <li class="mx-1">
+                        <img src="{{ $project->owner->gravatarUrl() }}" class="rounded-full" alt="">
+                    </li>
+                </ul>
+                <a class="button ml-2 whitespace-no-wrap" href="{{ $project->path() }}/edit">Edit Project</a>
+            </div>
         </header>
         <main class="lg:flex flex-wrap -mx-3">
             <div class="lg:w-1/4 px-3 mt-10">
                 <div class="card">
                     @if (strlen($project->description)>100)
                         <h3 class="h3 text-xl py-4 -ml-5 border-l-4 border-blue-light pl-4 font-semibold mb-2">
-                            <a href="{{$project->path()}}">{{$project->title}}</a>
+                            <a href="{{ $project->path() }}">{{ $project->title }}</a>
                         </h3>
                         <input type="checkbox" class="read-more-state hidden" id="project-more" />
                         <p class="text-gray-500 read-more-wrap">
@@ -40,7 +52,7 @@
                     <h2 class="h2 text-lg mb-3 text-gray-600">Tasks</h2>
                     @forelse($project->tasks as $task)
                         <div class=" mb-3 card">
-                            <form action="{{$task->path()}}" method="POST">
+                            <form action="{{ $task->path() }}" method="POST">
                                 @method("PATCH")
                                 @csrf
                                 <div class="flex items-center">
@@ -52,7 +64,7 @@
                     @empty
                     @endforelse
                     <div class="card mb-3">
-                        <form action="{{$project->path().'/tasks'}}" method="POST">
+                        <form action="{{ $project->path().'/tasks' }}" method="POST">
                             @csrf
                             <input name="body" type="text" class="w-full" placeholder="Begin by adding tasks...">
                         </form>
@@ -60,13 +72,12 @@
                 </div>
                 <div class="">
                     <h2 class="h2 text-lg mb-3 text-gray-600">General Notes</h2>
-                    <form action="{{$project->path()}}" method="POST">
+                    <form action="{{ $project->path() }}" method="POST">
                         @method("PATCH")
                         @csrf
                         <textarea class="card w-full" name='notes' style="min-height: 16rem;" placeholder="Your notes go here">{{ $project->notes }}</textarea>
                         <button class="button mt-4">Save</button>
                     </form>
-
                 </div>
             </div>
         </main>

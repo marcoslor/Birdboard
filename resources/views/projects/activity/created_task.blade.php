@@ -1,3 +1,3 @@
 <span>
-    You created the task: "<u>{{ $activity->subject->body }}</u>"
+    @lang('projects.activity.'.$activity->description, ['user' => $activity->username(), 'task' => $activity->subject->body])
 </span>

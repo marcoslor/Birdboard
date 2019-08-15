@@ -81,4 +81,15 @@ class User extends Authenticatable
             return $query->where('user_id', $this->id);
         })->get();
     }
+
+    public function gravatarUrl(): string
+    {
+        $avatar_id = ($this->id % 30);
+
+        return "https://gravatar.com/avatar/" . md5($this->email) .
+            http_build_query([
+                's' => 40,
+                'd' => 'https://i0.wp.com/s3.amazonaws.com/laracasts/images/forum/avatars/avatar-' . $avatar_id . '.png'
+            ]);
+    }
 }
