@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Middleware\VerifyCsrfToken;
 use App\Project;
 use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
@@ -21,6 +22,7 @@ class ManageProjectsTest extends TestCase
         $this->get($project->path().'/edit')->assertRedirect('login');
         $this->get('/projects/edit')->assertRedirect('login');
         $this->get($project->path())->assertRedirect('login');
+
         $this->post('/projects', $project->toArray())->assertRedirect('login');
     }
 
@@ -29,7 +31,6 @@ class ManageProjectsTest extends TestCase
     {
         //Creates user and signs it in
         $this->signIn();
-//        $this->withoutExceptionHandling();
         //creates project with user_id
         $project = factory('App\Project')->create();
 
@@ -114,6 +115,7 @@ class ManageProjectsTest extends TestCase
     /** @test */
     public function a_user_can_update_a_project(): void
     {
+        $this->withoutExceptionHandling();
         $project = ProjectFactory::ownedBy($this->signIn())
             ->create();
         $this->get($project->path().'/edit')->assertOk();

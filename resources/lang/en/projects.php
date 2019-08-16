@@ -9,4 +9,7 @@ return [
         'incompleted_task' => ':user marked the task <u>:task</u> as incompleted',
         'updated_project' => ':user updated the :changed of the project | :user updated the project',
     ],
+    'invitation' => [
+        'no_user' => 'The user you are inviting must have a Birdboard account'
+    ]
 ];

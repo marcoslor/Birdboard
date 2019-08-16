@@ -52,15 +52,13 @@ class Project extends Model
 
     public function addTask($body)
     {
-        $task = $this->tasks()->create(compact('body'));
-        return $task;
+        return $this->tasks()->create(compact('body'));;
     }
 
     public function activity()
     {
         return $this->hasMany(Activity::class)->latest();
     }
-
 
     public function invite(User $user)
     {
