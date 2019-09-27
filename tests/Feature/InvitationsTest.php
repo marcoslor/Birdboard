@@ -14,9 +14,8 @@ class InvitationsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function a_projects_owner_can_invite_a_user(): void
+    public function only_a_projects_owner_can_invite_a_user(): void
     {
-        $this->withoutExceptionHandling();
         $project = ProjectFactory::create();
 
         $userToInvite = factory(User::class)->create();
@@ -29,16 +28,35 @@ class InvitationsTest extends TestCase
     }
 
     /** @test */
-    public function non_owners_may_not_invite_users(): void
+    public function a_user_cannot_be_included_as_member_twice(): void
     {
-        $this->actingAs($user = factory(User::class)->create())
-            ->post(ProjectFactory::create()->path() . '/invitations',
-                [
-                    'email' => $user->email
-                ]
-            )->assertForbidden();
+        $project = ProjectFactory::create();
+
+        $project->invite($anotherUser = factory('App\User')->create());
+        $project->invite($anotherUser);
+
+        $project = tap($project)->get();
+        $this->assertCount(1, $project->members);
     }
 
+    /** @test */
+    public function non_owners_may_not_invite_users(): void
+    {
+//        $this->withoutExceptionHandling();
+
+        $project = ProjectFactory::create();
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)
+            ->post($project->path() . '/invitations', ['email' => factory(User::class)->create()->email])
+            ->assertForbidden();
+
+        $project->invite($user);
+
+        $this->actingAs($user)
+            ->post($project->path() . '/invitations')
+            ->assertForbidden();
+    }
 
     /** @test */
     public function an_invited_user_may_update_the_project_details(): void
@@ -62,8 +80,23 @@ class InvitationsTest extends TestCase
         $this->actingAs($project->owner)
             ->post($project->path() . '/invitations',
                 [
-                    'email' => 'null@example.com'
+                    'email' => '100101@example.com'
                 ]
             )->assertSessionHasErrors(['email' => __('projects.invitation.no_user')]);
+    }
+
+    /** @test */
+    public function users_cannot_invite_themselves(): void
+    {
+        $project = ProjectFactory::create();
+
+        $project->invite(factory(User::class)->create());
+
+        $this->actingAs($project->owner)
+            ->post($project->path() . '/invitations',
+                [
+                    'email' => $project->owner->email
+                ]
+            )->assertSessionHasErrors();
     }
 }

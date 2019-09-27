@@ -1,17 +1,19 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 
+//require('mix-tailwindcss');
+
 require('tailwind-not-last-child')({
-  notable: [
-    {
-      type: 'margin',
-      char: 'm'
-    },
-    {
-      type: 'padding',
-      char: 'p'
-    }
-  ]
+    notable: [
+        {
+            type: 'margin',
+            char: 'm'
+        },
+        {
+            type: 'padding',
+            char: 'p'
+        }
+    ]
 });
 
 /*
@@ -26,8 +28,10 @@ require('tailwind-not-last-child')({
  */
 
 mix.js('resources/js/app.js', 'public/js');
+
 mix.sass('resources/sass/app.scss', 'public/css')
-  .options({
-    processCssUrls: false,
-    postCss: [ tailwindcss('tailwind.config.js') ],
-  });
+    .options({
+        processCssUrls: false,
+        postCss: [tailwindcss('tailwind.config.js')],
+    });
+

@@ -4,16 +4,29 @@
         <header class="flex justify-between mb-4 py-4">
             <p class="h2 text-gray-600"><a href="/projects">My Projects</a> / {{ $project->title }}</p>
             <div class="inline-flex">
-                <ul class="inline-flex">
-                    @foreach($project->members as $member)
+                <div class="overflow-hidden @if(auth()->user()->is($project->owner)) invited @endif">
+                    <ul class="inline-flex">
+                        @foreach($project->members as $member)
+                            <li class="mx-1">
+                                <img src="{{ $member->gravatarUrl() }}" class="rounded-full w-10 h-10"
+                                     style="max-width: unset" alt="">
+                            </li>
+                        @endforeach
                         <li class="mx-1">
-                            <img src="{{ $member->gravatarUrl() }}" class="rounded-full" alt="">
+                            <img src="{{ $project->owner->gravatarUrl() }}" class="rounded-full w-10 h-10"
+                                 style="max-width: unset" alt="">
                         </li>
-                    @endforeach
-                    <li class="mx-1">
-                        <img src="{{ $project->owner->gravatarUrl() }}" class="rounded-full" alt="">
-                    </li>
-                </ul>
+                        @if(auth()->user()->is($project->owner))
+                            <li class="flex">
+                                <invited>
+                                </invited>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+                <button>
+                    <i class="mi mi-add-circle-outline"></i>
+                </button>
                 <a class="button ml-2 whitespace-no-wrap" href="{{ $project->path() }}/edit">Edit Project</a>
             </div>
         </header>
@@ -40,6 +53,13 @@
                         </span>
                         </p>
                         <label for="project-more" class="read-more-trigger"></label>
+                        <footer class="text-right flex-fill">
+                            <form action="{{ $project->path() }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit">Delete</button>
+                            </form>
+                        </footer>
                     @else
                         @include('projects.card')
                     @endif

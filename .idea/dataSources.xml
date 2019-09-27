@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="birdboard@localhost" uuid="8ecd1668-d01d-4e22-aed3-cf7818667863">
+    <data-source source="LOCAL" name="Homestead" uuid="6233ebb2-b135-4269-aaea-efac7f499f65">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/birdboard</jdbc-url>
+      <jdbc-url>jdbc:mysql://192.168.10.10:3306/birdboard</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />

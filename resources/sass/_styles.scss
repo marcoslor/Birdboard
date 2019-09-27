@@ -5,7 +5,7 @@
   transition: opacity .25s ease;
 }
 
-.read-more-state{
+.read-more-state {
   &:checked ~ {
     .read-more-wrap .read-more-target {
       opacity: 1;

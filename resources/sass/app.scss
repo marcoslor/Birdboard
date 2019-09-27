@@ -3,9 +3,7 @@
 @import 'styles';
 
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 .button{
@@ -16,4 +14,19 @@
 .card{
   @apply .bg-white .rounded-lg .p-5 .shadow;
 }
+
+.invited {
+    .v-popover {
+        transition: .2s ease;
+        margin-right: -44px;
+    }
+
+    &:hover {
+        .v-popover {
+            transition: .2s ease;
+            margin-right: 0px;
+        }
+    }
+}
+
 

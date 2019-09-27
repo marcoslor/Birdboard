@@ -13,10 +13,8 @@
                 <ul class="flex flex-wrap -mx-4">
             @endif
             <li class="w-1/3 p-4">
-                <div class="">
-                    <div class="card h-64">
-                        @include('projects.card')
-                    </div>
+                <div class="card h-64 flex flex-col">
+                    @include('projects.card')
                 </div>
             </li>
             @if($loop->last)

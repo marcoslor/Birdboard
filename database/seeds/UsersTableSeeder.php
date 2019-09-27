@@ -13,10 +13,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        $user1 = factory('App\User')->create(['password' => '$2y$10$z8ux3OyCIUGOYQdXjXHY1.fx7FelEht1UswbXQhf9Gmlz6Z2xO6lu', 'email' => 'email@example.com']);
+        $user1 = factory('App\User')->create(['password' => '$2y$10$C4dWErMl3w2Armmm4E8aJuVJfKnw1AhsUfR.kFif2Ab7hgi1o0/Hq', 'email' => 'email@example.com']);
         factory('App\Project')->create(['owner_id' => $user1]);
 
-        $user2 = factory('App\User')->create(['password' => '$2y$10$z8ux3OyCIUGOYQdXjXHY1.fx7FelEht1UswbXQhf9Gmlz6Z2xO6lu', 'email' => 'aemail@example.com']);
+        $user2 = factory('App\User')->create(['password' => '$2y$10$C4dWErMl3w2Armmm4E8aJuVJfKnw1AhsUfR.kFif2Ab7hgi1o0/Hq', 'email' => 'aemail@example.com']);
 
         $user1->projects[0]->invite($user2);
     }

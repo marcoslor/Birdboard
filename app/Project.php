@@ -52,7 +52,7 @@ class Project extends Model
 
     public function addTask($body)
     {
-        return $this->tasks()->create(compact('body'));;
+        return $this->tasks()->create(compact('body'));
     }
 
     public function activity()
@@ -62,7 +62,9 @@ class Project extends Model
 
     public function invite(User $user)
     {
-        return $this->members()->attach($user);
+        //Add only if not exists
+
+        return !$user->is($this->owner) ? $this->members()->syncWithoutDetaching($user) : null;
     }
 
     public function members()

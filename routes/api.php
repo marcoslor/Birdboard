@@ -13,6 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', static function () {
+    return view('SPA.app');
+});
+
+Route::get('/login', static function () {
+    return view('SPA.app');
+});
+
+Route::group(['middleware' => ['auth:api']], static function () {
+    Route::get('/user', static function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('/projects/{project}', 'API\ProjectsController@show');
+    Route::post('/projects', 'API\ProjectsController@store');
 });

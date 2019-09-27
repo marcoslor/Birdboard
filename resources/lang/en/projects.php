@@ -10,6 +10,7 @@ return [
         'updated_project' => ':user updated the :changed of the project | :user updated the project',
     ],
     'invitation' => [
-        'no_user' => 'The user you are inviting must have a Birdboard account'
+        'no_user' => 'The user you are inviting must have a Birdboard account',
+        'already_in' => ':user already participate in the project'
     ]
 ];

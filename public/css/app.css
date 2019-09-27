@@ -7440,6 +7440,18 @@ video {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.08);
 }
 
+.invited .v-popover {
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+    margin-right: -44px;
+}
+
+.invited:hover .v-popover {
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+    margin-right: 0px;
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none !important;

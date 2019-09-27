@@ -15,6 +15,7 @@ Route::get('/', static function () {
     return redirect('/projects');
 });
 
+
 Route::group(['middleware' => 'auth'], static function () {
     Route::resource('projects', 'ProjectsController');
     Route::post('/projects/{project}/invitations', 'ProjectsInvitationsController@store');
