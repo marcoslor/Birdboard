@@ -63,7 +63,6 @@ class ManageProjectsTest extends TestCase
         $this->withoutExceptionHandling();
         $this->signIn();
 
-
         $this->get('/projects/create')->assertStatus(200);
 
         $attributes = [
@@ -157,4 +156,14 @@ class ManageProjectsTest extends TestCase
         $this->get('/projects')->assertSee($project->title);
     }
 
+    /** @test */
+    public function unauthorized_users_cannot_delete_projects(): void
+    {
+        $user = $this->signIn();
+        $project = ProjectFactory::create();
+
+        $project->invite($user);
+
+        $this->delete($project->path())->assertForbidden();
+    }
 }
