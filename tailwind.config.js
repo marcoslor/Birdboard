@@ -4,7 +4,15 @@ module.exports = {
     container: {
       center: true,
     },
-
+    backgroundColor: {
+      page: 'var(--page-background-color)',
+      card: 'var(--card-background-color)',
+      button: 'var(--button-background-color)',
+      nav: 'var(--page-nav-background-color)'
+    },
+    textColor: {
+      default: 'var(--text-default-color)'
+    },
     extend: {
       boxShadow: {
         default: '0 0 5px 0 rgba(0, 0, 0, 0.08)'

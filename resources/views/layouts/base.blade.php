@@ -18,7 +18,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-grey-light">
+<body class="theme-dark bg-page">
 @yield('page')
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>

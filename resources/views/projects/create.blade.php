@@ -7,10 +7,12 @@
                 <h1 class="text-2xl text-center mb-4">Create a project</h1>
 
                 <label for="title">Title</label>
-                <input class="border rounded block w-full mb-4 mt-2" type="text" name="title" placeholder="Title">
+                <input class="text-input border rounded block w-full mb-4 mt-2" type="text" name="title"
+                       placeholder="Title">
 
                 <label for="description">Description</label>
-                <textarea class="border rounded block w-full mb-4 mt-2" name="description" id="" cols="100" rows="8"></textarea>
+                <textarea class="text-input border rounded block w-full mb-4 mt-2" name="description" id="" cols="100"
+                          rows="8" placeholder="Something here to describe your project..."></textarea>
 
                 <div class="flex w-full justify-between mt-8">
                     <button class="button" type="submit">Submit</button>

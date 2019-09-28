@@ -199,3 +199,10 @@ fabric.properties
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/node,laravel,composer,phpstorm
+app/Observers/
+resources/js/components/Projects/
+
+########################################
+
+public/css/app.css
+public/js/app.js

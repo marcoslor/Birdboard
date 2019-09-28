@@ -5,7 +5,7 @@
         </button>
         <template slot="popover">
             <div class="card tooltip-content">
-                <input class="outline-none" name="email" placeholder="Email" type="email" v-model="emailToInvite"/>
+                <input class="text-input" name="email" placeholder="Email" type="email" v-model="emailToInvite"/>
                 <button class="button rounded-full material-icons outline-none" v-on:click="invite">send</button>
             </div>
         </template>
