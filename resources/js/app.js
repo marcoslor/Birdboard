@@ -1,3 +1,5 @@
+import VueJSModal from "vue-js-modal";
+
 require('./bootstrap');
 
 import Vue from 'vue'
@@ -16,15 +18,16 @@ import Toasted from 'vue-toasted'
 
 Vue.use(VTooltip);
 Vue.use(Toasted);
+Vue.use(VueJSModal);
 
 import MainApp from "./components/MainApp";
 
 import {routes} from './routes';
 
 let router = new VueRouter({
-    routes,
-    mode: 'history',
-    base: '/api'
+  routes,
+  mode: 'history',
+  base: '/api'
 });
 
 Vue.component('invited', require('./components/Invited/Invited.vue').default);
@@ -32,11 +35,11 @@ Vue.component('theme-switcher', require('./components/theme-switcher/theme-switc
 
 
 new Vue({
-    el: '#app',
-    components: {
-        MainApp
-    },
-    router,
-    store,
+  el: '#app',
+  components: {
+    MainApp
+  },
+  router,
+  store,
 });
 
