@@ -21,7 +21,7 @@
                 </ul>
             @endif
         @empty
-            <span>No projects yet.</span>
+            <span class="text-default">No projects yet.</span>
         @endforelse
     </main>
 @endSection

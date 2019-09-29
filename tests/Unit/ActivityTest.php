@@ -13,7 +13,7 @@ class ActivityTest extends TestCase
 
     /** @test */
 
-    public function it_has_a_user()
+    public function it_has_a_user(): void
     {
         $user = $this->signIn();
 

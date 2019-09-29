@@ -3,7 +3,7 @@
         @foreach($project->activity as $activity)
             <li class="{{$loop->last ? '' : 'mb-1'}}">
                 @include('projects.activity.'.$activity->description)
-                <span class="text-gray-400">
+                <span class="text-muted">
                     {{$activity->updated_at->diffForHumans()}}
                 </span>
             </li>

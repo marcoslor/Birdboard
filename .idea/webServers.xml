@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="e3e9db14-af28-436a-bad6-749b121b0a16" name="Homestead" url="http://127.0.0.1">
+      <webServer id="574d7960-bf59-443e-a618-a68332de4b69" name="Homestead" url="http://127.0.0.1">
         <fileTransfer host="127.0.0.1" port="2222" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

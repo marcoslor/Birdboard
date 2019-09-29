@@ -1,27 +1,3 @@
-.read-more-target {
-  opacity: 0;
-  max-height: 0;
-  font-size: 0;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-.read-more-state:checked ~ .read-more-wrap .read-more-target {
-  opacity: 1;
-  font-size: inherit;
-  max-height: unset;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-.read-more-state:checked ~ .read-more-trigger:before {
-  content: "Show less";
-}
-
-.read-more-state ~ .read-more-trigger:before {
-  content: "Show more";
-}
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -672,51 +648,51 @@ video {
 }
 
 .bg-page {
-    background-color: var(--page-background-color) !important;
+  background-color: var(--page-background-color) !important;
 }
 
 .bg-card {
-    background-color: var(--card-background-color) !important;
+  background-color: var(--card-background-color) !important;
 }
 
 .bg-button {
-    background-color: var(--button-background-color) !important;
+  background-color: var(--button-background-color) !important;
 }
 
 .bg-nav {
-    background-color: var(--page-nav-background-color) !important;
+  background-color: var(--page-nav-background-color) !important;
 }
 
 .hover\:bg-page:hover {
-    background-color: var(--page-background-color) !important;
+  background-color: var(--page-background-color) !important;
 }
 
 .hover\:bg-card:hover {
-    background-color: var(--card-background-color) !important;
+  background-color: var(--card-background-color) !important;
 }
 
 .hover\:bg-button:hover {
-    background-color: var(--button-background-color) !important;
+  background-color: var(--button-background-color) !important;
 }
 
 .hover\:bg-nav:hover {
-    background-color: var(--page-nav-background-color) !important;
+  background-color: var(--page-nav-background-color) !important;
 }
 
 .focus\:bg-page:focus {
-    background-color: var(--page-background-color) !important;
+  background-color: var(--page-background-color) !important;
 }
 
 .focus\:bg-card:focus {
-    background-color: var(--card-background-color) !important;
+  background-color: var(--card-background-color) !important;
 }
 
 .focus\:bg-button:focus {
-    background-color: var(--button-background-color) !important;
+  background-color: var(--button-background-color) !important;
 }
 
 .focus\:bg-nav:focus {
-    background-color: var(--page-nav-background-color) !important;
+  background-color: var(--page-nav-background-color) !important;
 }
 
 .bg-bottom {
@@ -4929,15 +4905,75 @@ video {
 }
 
 .text-default {
-    color: var(--text-default-color) !important;
+  color: var(--text-default-color) !important;
+}
+
+.text-accent {
+  color: var(--text-accent-color) !important;
+}
+
+.text-accent-light {
+  color: var(--text-accent-light-color) !important;
+}
+
+.text-muted {
+  color: var(--text-muted-color) !important;
+}
+
+.text-muted-light {
+  color: var(--text-muted-light-color) !important;
+}
+
+.text-error {
+  color: var(--text-error-color) !important;
 }
 
 .hover\:text-default:hover {
-    color: var(--text-default-color) !important;
+  color: var(--text-default-color) !important;
+}
+
+.hover\:text-accent:hover {
+  color: var(--text-accent-color) !important;
+}
+
+.hover\:text-accent-light:hover {
+  color: var(--text-accent-light-color) !important;
+}
+
+.hover\:text-muted:hover {
+  color: var(--text-muted-color) !important;
+}
+
+.hover\:text-muted-light:hover {
+  color: var(--text-muted-light-color) !important;
+}
+
+.hover\:text-error:hover {
+  color: var(--text-error-color) !important;
 }
 
 .focus\:text-default:focus {
-    color: var(--text-default-color) !important;
+  color: var(--text-default-color) !important;
+}
+
+.focus\:text-accent:focus {
+  color: var(--text-accent-color) !important;
+}
+
+.focus\:text-accent-light:focus {
+  color: var(--text-accent-light-color) !important;
+}
+
+.focus\:text-muted:focus {
+  color: var(--text-muted-color) !important;
+}
+
+.focus\:text-muted-light:focus {
+  color: var(--text-muted-light-color) !important;
+}
+
+.focus\:text-error:focus {
+  color: var(--text-error-color) !important;
 }
 
 .text-xs {
@@ -5393,24 +5429,42 @@ video {
   z-index: auto !important;
 }
 
-.theme-light {
-    --page-background-color: #F5F6F9;
-    --card-background-color: white;
-    --button-background-color: #47cdff;
-    --page-nav-background-color: white;
-    --text-default-color: #222;
+.text-input {
+  outline: 0;
+  background-color: transparent;
+  color: var(--text-default-color);
 }
 
-.theme-dark {
-    --page-background-color: #17181E;
-    --card-background-color: #1F2027;
-    --button-background-color: #59B6F9;
-    --page-nav-background-color: #1F2027;
-    --text-default-color: white;
+.text-input.is-invalid {
+  border: red;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: unset;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: "Show less";
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: "Show more";
 }
 
 .button {
-    background-color: var(--button-background-color);
+  background-color: var(--button-background-color);
   border-radius: 0.5rem;
   font-size: 0.875rem;
   padding-top: 0.5rem;
@@ -5418,33 +5472,42 @@ video {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   box-shadow: 0 2px 7px #b0eaff;
-    color: white;
+  color: white;
 }
 
 .card {
-    background-color: var(--card-background-color);
+  background-color: var(--card-background-color);
   border-radius: 0.5rem;
   padding: 1.25rem;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.08);
-    color: var(--text-default-color);
+  color: var(--text-default-color);
 }
 
-.text-input {
-    outline: 0;
-    background-color: transparent;
-    color: var(--text-default-color);
+.theme-dark {
+  --page-background-color: #17181e;
+  --card-background-color: #1f2027;
+  --button-background-color: #59b6f9;
+  --header-background-color: #1f2027;
+  --text-default-color: #fff;
+  --text-muted-color: rgba(255, 255, 255, 0.5);
+  --text-muted-light-color: rgba(255, 255, 255, 0.3);
+  --text-accent-color: #47cdff;
+  --text-accent-light-color: #8ae2fe;
+  --text-error-color: red;
 }
 
-.invited .v-popover {
-    -webkit-transition: 0.2s ease;
-    transition: 0.2s ease;
-    margin-right: -44px;
-}
-
-.invited:hover .v-popover {
-    -webkit-transition: 0.2s ease;
-    transition: 0.2s ease;
-    margin-right: 0px;
+.theme-light {
+  --page-background-color: #f5f6f9;
+  --card-background-color: white;
+  --button-background-color: #47cdff;
+  --header-background-color: white;
+  --text-default-color: #222;
+  --text-accent-color: #47cdff;
+  --text-accent-light-color: #8ae2fe;
+  --text-muted-color: rgba(0, 0, 0, 0.3);
+  --text-muted-light-color: rgba(255, 255, 255, 0.1);
+  --text-muted-light-color: #e1e6e8;
+  --text-error-color: red;
 }
 
 @media (min-width: 640px) {
@@ -5466,52 +5529,52 @@ video {
     background-attachment: scroll !important;
   }
 
-    .sm\:bg-page {
-        background-color: var(--page-background-color) !important;
+  .sm\:bg-page {
+    background-color: var(--page-background-color) !important;
   }
 
-    .sm\:bg-card {
-        background-color: var(--card-background-color) !important;
+  .sm\:bg-card {
+    background-color: var(--card-background-color) !important;
   }
 
-    .sm\:bg-button {
-        background-color: var(--button-background-color) !important;
+  .sm\:bg-button {
+    background-color: var(--button-background-color) !important;
   }
 
-    .sm\:bg-nav {
-        background-color: var(--page-nav-background-color) !important;
+  .sm\:bg-nav {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .sm\:hover\:bg-page:hover {
-        background-color: var(--page-background-color) !important;
+  .sm\:hover\:bg-page:hover {
+    background-color: var(--page-background-color) !important;
   }
 
-    .sm\:hover\:bg-card:hover {
-        background-color: var(--card-background-color) !important;
+  .sm\:hover\:bg-card:hover {
+    background-color: var(--card-background-color) !important;
   }
 
-    .sm\:hover\:bg-button:hover {
-        background-color: var(--button-background-color) !important;
+  .sm\:hover\:bg-button:hover {
+    background-color: var(--button-background-color) !important;
   }
 
-    .sm\:hover\:bg-nav:hover {
-        background-color: var(--page-nav-background-color) !important;
+  .sm\:hover\:bg-nav:hover {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .sm\:focus\:bg-page:focus {
-        background-color: var(--page-background-color) !important;
+  .sm\:focus\:bg-page:focus {
+    background-color: var(--page-background-color) !important;
   }
 
-    .sm\:focus\:bg-card:focus {
-        background-color: var(--card-background-color) !important;
+  .sm\:focus\:bg-card:focus {
+    background-color: var(--card-background-color) !important;
   }
 
-    .sm\:focus\:bg-button:focus {
-        background-color: var(--button-background-color) !important;
+  .sm\:focus\:bg-button:focus {
+    background-color: var(--button-background-color) !important;
   }
 
-    .sm\:focus\:bg-nav:focus {
-        background-color: var(--page-nav-background-color) !important;
+  .sm\:focus\:bg-nav:focus {
+    background-color: var(--page-nav-background-color) !important;
   }
 
   .sm\:bg-bottom {
@@ -9723,16 +9786,76 @@ video {
     text-align: justify !important;
   }
 
-    .sm\:text-default {
-        color: var(--text-default-color) !important;
+  .sm\:text-default {
+    color: var(--text-default-color) !important;
   }
 
-    .sm\:hover\:text-default:hover {
-        color: var(--text-default-color) !important;
+  .sm\:text-accent {
+    color: var(--text-accent-color) !important;
   }
 
-    .sm\:focus\:text-default:focus {
-        color: var(--text-default-color) !important;
+  .sm\:text-accent-light {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .sm\:text-muted {
+    color: var(--text-muted-color) !important;
+  }
+
+  .sm\:text-muted-light {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .sm\:text-error {
+    color: var(--text-error-color) !important;
+  }
+
+  .sm\:hover\:text-default:hover {
+    color: var(--text-default-color) !important;
+  }
+
+  .sm\:hover\:text-accent:hover {
+    color: var(--text-accent-color) !important;
+  }
+
+  .sm\:hover\:text-accent-light:hover {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .sm\:hover\:text-muted:hover {
+    color: var(--text-muted-color) !important;
+  }
+
+  .sm\:hover\:text-muted-light:hover {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .sm\:hover\:text-error:hover {
+    color: var(--text-error-color) !important;
+  }
+
+  .sm\:focus\:text-default:focus {
+    color: var(--text-default-color) !important;
+  }
+
+  .sm\:focus\:text-accent:focus {
+    color: var(--text-accent-color) !important;
+  }
+
+  .sm\:focus\:text-accent-light:focus {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .sm\:focus\:text-muted:focus {
+    color: var(--text-muted-color) !important;
+  }
+
+  .sm\:focus\:text-muted-light:focus {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .sm\:focus\:text-error:focus {
+    color: var(--text-error-color) !important;
   }
 
   .sm\:text-xs {
@@ -10208,52 +10331,52 @@ video {
     background-attachment: scroll !important;
   }
 
-    .md\:bg-page {
-        background-color: var(--page-background-color) !important;
+  .md\:bg-page {
+    background-color: var(--page-background-color) !important;
   }
 
-    .md\:bg-card {
-        background-color: var(--card-background-color) !important;
+  .md\:bg-card {
+    background-color: var(--card-background-color) !important;
   }
 
-    .md\:bg-button {
-        background-color: var(--button-background-color) !important;
+  .md\:bg-button {
+    background-color: var(--button-background-color) !important;
   }
 
-    .md\:bg-nav {
-        background-color: var(--page-nav-background-color) !important;
+  .md\:bg-nav {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .md\:hover\:bg-page:hover {
-        background-color: var(--page-background-color) !important;
+  .md\:hover\:bg-page:hover {
+    background-color: var(--page-background-color) !important;
   }
 
-    .md\:hover\:bg-card:hover {
-        background-color: var(--card-background-color) !important;
+  .md\:hover\:bg-card:hover {
+    background-color: var(--card-background-color) !important;
   }
 
-    .md\:hover\:bg-button:hover {
-        background-color: var(--button-background-color) !important;
+  .md\:hover\:bg-button:hover {
+    background-color: var(--button-background-color) !important;
   }
 
-    .md\:hover\:bg-nav:hover {
-        background-color: var(--page-nav-background-color) !important;
+  .md\:hover\:bg-nav:hover {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .md\:focus\:bg-page:focus {
-        background-color: var(--page-background-color) !important;
+  .md\:focus\:bg-page:focus {
+    background-color: var(--page-background-color) !important;
   }
 
-    .md\:focus\:bg-card:focus {
-        background-color: var(--card-background-color) !important;
+  .md\:focus\:bg-card:focus {
+    background-color: var(--card-background-color) !important;
   }
 
-    .md\:focus\:bg-button:focus {
-        background-color: var(--button-background-color) !important;
+  .md\:focus\:bg-button:focus {
+    background-color: var(--button-background-color) !important;
   }
 
-    .md\:focus\:bg-nav:focus {
-        background-color: var(--page-nav-background-color) !important;
+  .md\:focus\:bg-nav:focus {
+    background-color: var(--page-nav-background-color) !important;
   }
 
   .md\:bg-bottom {
@@ -14465,16 +14588,76 @@ video {
     text-align: justify !important;
   }
 
-    .md\:text-default {
-        color: var(--text-default-color) !important;
+  .md\:text-default {
+    color: var(--text-default-color) !important;
   }
 
-    .md\:hover\:text-default:hover {
-        color: var(--text-default-color) !important;
+  .md\:text-accent {
+    color: var(--text-accent-color) !important;
   }
 
-    .md\:focus\:text-default:focus {
-        color: var(--text-default-color) !important;
+  .md\:text-accent-light {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .md\:text-muted {
+    color: var(--text-muted-color) !important;
+  }
+
+  .md\:text-muted-light {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .md\:text-error {
+    color: var(--text-error-color) !important;
+  }
+
+  .md\:hover\:text-default:hover {
+    color: var(--text-default-color) !important;
+  }
+
+  .md\:hover\:text-accent:hover {
+    color: var(--text-accent-color) !important;
+  }
+
+  .md\:hover\:text-accent-light:hover {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .md\:hover\:text-muted:hover {
+    color: var(--text-muted-color) !important;
+  }
+
+  .md\:hover\:text-muted-light:hover {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .md\:hover\:text-error:hover {
+    color: var(--text-error-color) !important;
+  }
+
+  .md\:focus\:text-default:focus {
+    color: var(--text-default-color) !important;
+  }
+
+  .md\:focus\:text-accent:focus {
+    color: var(--text-accent-color) !important;
+  }
+
+  .md\:focus\:text-accent-light:focus {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .md\:focus\:text-muted:focus {
+    color: var(--text-muted-color) !important;
+  }
+
+  .md\:focus\:text-muted-light:focus {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .md\:focus\:text-error:focus {
+    color: var(--text-error-color) !important;
   }
 
   .md\:text-xs {
@@ -14950,52 +15133,52 @@ video {
     background-attachment: scroll !important;
   }
 
-    .lg\:bg-page {
-        background-color: var(--page-background-color) !important;
+  .lg\:bg-page {
+    background-color: var(--page-background-color) !important;
   }
 
-    .lg\:bg-card {
-        background-color: var(--card-background-color) !important;
+  .lg\:bg-card {
+    background-color: var(--card-background-color) !important;
   }
 
-    .lg\:bg-button {
-        background-color: var(--button-background-color) !important;
+  .lg\:bg-button {
+    background-color: var(--button-background-color) !important;
   }
 
-    .lg\:bg-nav {
-        background-color: var(--page-nav-background-color) !important;
+  .lg\:bg-nav {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .lg\:hover\:bg-page:hover {
-        background-color: var(--page-background-color) !important;
+  .lg\:hover\:bg-page:hover {
+    background-color: var(--page-background-color) !important;
   }
 
-    .lg\:hover\:bg-card:hover {
-        background-color: var(--card-background-color) !important;
+  .lg\:hover\:bg-card:hover {
+    background-color: var(--card-background-color) !important;
   }
 
-    .lg\:hover\:bg-button:hover {
-        background-color: var(--button-background-color) !important;
+  .lg\:hover\:bg-button:hover {
+    background-color: var(--button-background-color) !important;
   }
 
-    .lg\:hover\:bg-nav:hover {
-        background-color: var(--page-nav-background-color) !important;
+  .lg\:hover\:bg-nav:hover {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .lg\:focus\:bg-page:focus {
-        background-color: var(--page-background-color) !important;
+  .lg\:focus\:bg-page:focus {
+    background-color: var(--page-background-color) !important;
   }
 
-    .lg\:focus\:bg-card:focus {
-        background-color: var(--card-background-color) !important;
+  .lg\:focus\:bg-card:focus {
+    background-color: var(--card-background-color) !important;
   }
 
-    .lg\:focus\:bg-button:focus {
-        background-color: var(--button-background-color) !important;
+  .lg\:focus\:bg-button:focus {
+    background-color: var(--button-background-color) !important;
   }
 
-    .lg\:focus\:bg-nav:focus {
-        background-color: var(--page-nav-background-color) !important;
+  .lg\:focus\:bg-nav:focus {
+    background-color: var(--page-nav-background-color) !important;
   }
 
   .lg\:bg-bottom {
@@ -19207,16 +19390,76 @@ video {
     text-align: justify !important;
   }
 
-    .lg\:text-default {
-        color: var(--text-default-color) !important;
+  .lg\:text-default {
+    color: var(--text-default-color) !important;
   }
 
-    .lg\:hover\:text-default:hover {
-        color: var(--text-default-color) !important;
+  .lg\:text-accent {
+    color: var(--text-accent-color) !important;
   }
 
-    .lg\:focus\:text-default:focus {
-        color: var(--text-default-color) !important;
+  .lg\:text-accent-light {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .lg\:text-muted {
+    color: var(--text-muted-color) !important;
+  }
+
+  .lg\:text-muted-light {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .lg\:text-error {
+    color: var(--text-error-color) !important;
+  }
+
+  .lg\:hover\:text-default:hover {
+    color: var(--text-default-color) !important;
+  }
+
+  .lg\:hover\:text-accent:hover {
+    color: var(--text-accent-color) !important;
+  }
+
+  .lg\:hover\:text-accent-light:hover {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .lg\:hover\:text-muted:hover {
+    color: var(--text-muted-color) !important;
+  }
+
+  .lg\:hover\:text-muted-light:hover {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .lg\:hover\:text-error:hover {
+    color: var(--text-error-color) !important;
+  }
+
+  .lg\:focus\:text-default:focus {
+    color: var(--text-default-color) !important;
+  }
+
+  .lg\:focus\:text-accent:focus {
+    color: var(--text-accent-color) !important;
+  }
+
+  .lg\:focus\:text-accent-light:focus {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .lg\:focus\:text-muted:focus {
+    color: var(--text-muted-color) !important;
+  }
+
+  .lg\:focus\:text-muted-light:focus {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .lg\:focus\:text-error:focus {
+    color: var(--text-error-color) !important;
   }
 
   .lg\:text-xs {
@@ -19692,52 +19935,52 @@ video {
     background-attachment: scroll !important;
   }
 
-    .xl\:bg-page {
-        background-color: var(--page-background-color) !important;
+  .xl\:bg-page {
+    background-color: var(--page-background-color) !important;
   }
 
-    .xl\:bg-card {
-        background-color: var(--card-background-color) !important;
+  .xl\:bg-card {
+    background-color: var(--card-background-color) !important;
   }
 
-    .xl\:bg-button {
-        background-color: var(--button-background-color) !important;
+  .xl\:bg-button {
+    background-color: var(--button-background-color) !important;
   }
 
-    .xl\:bg-nav {
-        background-color: var(--page-nav-background-color) !important;
+  .xl\:bg-nav {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .xl\:hover\:bg-page:hover {
-        background-color: var(--page-background-color) !important;
+  .xl\:hover\:bg-page:hover {
+    background-color: var(--page-background-color) !important;
   }
 
-    .xl\:hover\:bg-card:hover {
-        background-color: var(--card-background-color) !important;
+  .xl\:hover\:bg-card:hover {
+    background-color: var(--card-background-color) !important;
   }
 
-    .xl\:hover\:bg-button:hover {
-        background-color: var(--button-background-color) !important;
+  .xl\:hover\:bg-button:hover {
+    background-color: var(--button-background-color) !important;
   }
 
-    .xl\:hover\:bg-nav:hover {
-        background-color: var(--page-nav-background-color) !important;
+  .xl\:hover\:bg-nav:hover {
+    background-color: var(--page-nav-background-color) !important;
   }
 
-    .xl\:focus\:bg-page:focus {
-        background-color: var(--page-background-color) !important;
+  .xl\:focus\:bg-page:focus {
+    background-color: var(--page-background-color) !important;
   }
 
-    .xl\:focus\:bg-card:focus {
-        background-color: var(--card-background-color) !important;
+  .xl\:focus\:bg-card:focus {
+    background-color: var(--card-background-color) !important;
   }
 
-    .xl\:focus\:bg-button:focus {
-        background-color: var(--button-background-color) !important;
+  .xl\:focus\:bg-button:focus {
+    background-color: var(--button-background-color) !important;
   }
 
-    .xl\:focus\:bg-nav:focus {
-        background-color: var(--page-nav-background-color) !important;
+  .xl\:focus\:bg-nav:focus {
+    background-color: var(--page-nav-background-color) !important;
   }
 
   .xl\:bg-bottom {
@@ -23949,16 +24192,76 @@ video {
     text-align: justify !important;
   }
 
-    .xl\:text-default {
-        color: var(--text-default-color) !important;
+  .xl\:text-default {
+    color: var(--text-default-color) !important;
   }
 
-    .xl\:hover\:text-default:hover {
-        color: var(--text-default-color) !important;
+  .xl\:text-accent {
+    color: var(--text-accent-color) !important;
   }
 
-    .xl\:focus\:text-default:focus {
-        color: var(--text-default-color) !important;
+  .xl\:text-accent-light {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .xl\:text-muted {
+    color: var(--text-muted-color) !important;
+  }
+
+  .xl\:text-muted-light {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .xl\:text-error {
+    color: var(--text-error-color) !important;
+  }
+
+  .xl\:hover\:text-default:hover {
+    color: var(--text-default-color) !important;
+  }
+
+  .xl\:hover\:text-accent:hover {
+    color: var(--text-accent-color) !important;
+  }
+
+  .xl\:hover\:text-accent-light:hover {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .xl\:hover\:text-muted:hover {
+    color: var(--text-muted-color) !important;
+  }
+
+  .xl\:hover\:text-muted-light:hover {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .xl\:hover\:text-error:hover {
+    color: var(--text-error-color) !important;
+  }
+
+  .xl\:focus\:text-default:focus {
+    color: var(--text-default-color) !important;
+  }
+
+  .xl\:focus\:text-accent:focus {
+    color: var(--text-accent-color) !important;
+  }
+
+  .xl\:focus\:text-accent-light:focus {
+    color: var(--text-accent-light-color) !important;
+  }
+
+  .xl\:focus\:text-muted:focus {
+    color: var(--text-muted-color) !important;
+  }
+
+  .xl\:focus\:text-muted-light:focus {
+    color: var(--text-muted-light-color) !important;
+  }
+
+  .xl\:focus\:text-error:focus {
+    color: var(--text-error-color) !important;
   }
 
   .xl\:text-xs {

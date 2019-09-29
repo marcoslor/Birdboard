@@ -39,7 +39,7 @@
                             <a href="{{ $project->path() }}">{{ $project->title }}</a>
                         </h3>
                         <input type="checkbox" class="read-more-state hidden" id="project-more" />
-                        <p class="text-gray-500 read-more-wrap">
+                        <p class="text-primary read-more-wrap mb-2">
                             @php
                                 $str = $project->description;
                                 $pos = 100;
@@ -47,13 +47,9 @@
                                 $more = substr($str, $pos);
                                 echo $trim
                             @endphp
-                            <span class="read-more-target">
-                            @php
-                                echo $more
-                            @endphp
-                        </span>
+                            <span class="read-more-target">{{ $more }}</span>
                         </p>
-                        <label for="project-more" class="read-more-trigger"></label>
+                        <label for="project-more" class="read-more-trigger text-muted"></label>
                         <footer class="text-right flex-fill">
                             <form action="{{ $project->path() }}" method="POST">
                                 @method('DELETE')
@@ -77,7 +73,7 @@
                                 @method("PATCH")
                                 @csrf
                                 <div class="flex items-center">
-                                    <input class="w-full text-input {{$task->completed?'text-gray-400 line-through':''}}"
+                                    <input class="w-full text-input {{$task->completed?'text-muted line-through':''}}"
                                            value="{{$task->body}}" name="body">
                                     <input type="checkbox" name="completed" onchange="this.form.submit()" {{$task->completed?'checked':''}}>
                                 </div>
@@ -98,7 +94,8 @@
                     <form action="{{ $project->path() }}" method="POST">
                         @method("PATCH")
                         @csrf
-                        <textarea class="card w-full text-default" name='notes' style="min-height: 16rem;"
+                        <textarea class="card w-full text-default text-input bg-card" name='notes'
+                                  style="min-height: 16rem;"
                                   placeholder="Your notes go here">{{ $project->notes }}</textarea>
                         <button class="button mt-4">Save</button>
                     </form>

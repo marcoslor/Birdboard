@@ -11,7 +11,12 @@ module.exports = {
       nav: 'var(--page-nav-background-color)'
     },
     textColor: {
-      default: 'var(--text-default-color)'
+      default: 'var(--text-default-color)',
+      accent: 'var(--text-accent-color)',
+      'accent-light': 'var(--text-accent-light-color)',
+      muted: 'var(--text-muted-color)',
+      'muted-light': 'var(--text-muted-light-color)',
+      error: 'var(--text-error-color)'
     },
     extend: {
       boxShadow: {

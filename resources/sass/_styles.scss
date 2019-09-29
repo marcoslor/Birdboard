@@ -1,3 +1,14 @@
+
+.text-input {
+  @apply outline-none;
+  background-color: transparent;
+  color: var(--text-default-color);
+
+  &.is-invalid {
+    border: red;
+  }
+}
+
 .read-more-target {
   opacity: 0;
   max-height: 0;

@@ -1,0 +1,18 @@
+.invited {
+  .v-popover {
+    transition: .2s ease;
+    margin-right: -44px;
+  }
+
+  &:hover {
+    .v-popover {
+      transition: .2s ease;
+      margin-right: 0px;
+    }
+  }
+}
+
+.v-popover.open {
+  transition: .2s ease;
+  margin-right: 0px;
+}

@@ -112,7 +112,7 @@
   <component name="PhpInterpreters">
     <interpreters>
       <interpreter id="2fdde7ea-b79c-4016-93eb-01a8b78baefd" name="Homestead PHP 7.3" home="sftp://DATA" debugger_id="php.debugger.XDebug">
-        <remote_data WEB_SERVER_CONFIG_ID="e3e9db14-af28-436a-bad6-749b121b0a16" WEB_SERVER_CONFIG_NAME="Homestead" WEB_SERVER_CREDENTIALS_ID="sftp://vagrant@127.0.0.1:2222" INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="/home/vagrant/.phpstorm_helpers" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" />
+        <remote_data WEB_SERVER_CONFIG_ID="574d7960-bf59-443e-a618-a68332de4b69" WEB_SERVER_CONFIG_NAME="Homestead" WEB_SERVER_CREDENTIALS_ID="sftp://vagrant@127.0.0.1:2222" INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="/home/vagrant/.phpstorm_helpers" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" />
       </interpreter>
     </interpreters>
   </component>

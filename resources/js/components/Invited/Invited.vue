@@ -48,9 +48,6 @@
   };
 </script>
 
-<style>
-    .v-popover.open {
-        transition: .2s ease;
-        margin-right: 0px;
-    }
+<style lang="scss">
+    @import "Invited";
 </style>
