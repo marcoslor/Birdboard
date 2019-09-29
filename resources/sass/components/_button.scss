@@ -1,5 +1,36 @@
 .button {
-  @apply .bg-button .rounded-lg .text-sm .py-2 .px-5;
-  box-shadow: 0 2px 7px #b0eaff;
+  transition: $transition-base;
+
+  @apply .bg-button .no-underline .rounded-lg .text-sm .py-2 .px-5;
   color: white;
+
+  &.is-outlined {
+    @apply .bg-card .border .border-accent .text-accent;
+  }
+
+  .theme-light & {
+    box-shadow: 0 2px 7px 0 #b0eaff;
+
+    &:hover {
+      box-shadow: 0 2px 15px 0 #54c4ec;
+    }
+  }
+
+  .theme-dark & {
+    box-shadow: 0 2px 7px 0 #00658b;
+
+    &:hover {
+      box-shadow: 0 2px 15px 0 #00658b;
+    }
+  }
+}
+
+.text-shadow-default {
+  .theme-light & {
+    text-shadow: 0 2px 7px #b0eaff;
+  }
+
+  .theme-dark & {
+    text-shadow: 0 2px 7px #00658b;
+  }
 }

@@ -28,6 +28,8 @@ let router = new VueRouter({
 });
 
 Vue.component('invited', require('./components/Invited/Invited.vue').default);
+Vue.component('theme-switcher', require('./components/theme-switcher/theme-switcher.vue').default);
+
 
 new Vue({
     el: '#app',

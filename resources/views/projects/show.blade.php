@@ -35,7 +35,7 @@
             <div class="lg:w-1/4 px-3 mt-10">
                 <div class="card">
                     @if (strlen($project->description)>100)
-                        <h3 class="h3 text-xl py-4 -ml-5 border-l-4 border-blue-light pl-4 font-semibold mb-2">
+                        <h3 class="h3 text-xl py-4 -ml-5 border-l-4 border-accent-light pl-4 font-semibold mb-2">
                             <a href="{{ $project->path() }}">{{ $project->title }}</a>
                         </h3>
                         <input type="checkbox" class="read-more-state hidden" id="project-more" />

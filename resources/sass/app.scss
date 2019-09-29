@@ -2,8 +2,6 @@
 @import 'variables';
 
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @import 'styles';
 
@@ -13,6 +11,8 @@
 @import "themes/dark";
 @import "themes/light";
 
+@tailwind components;
+@tailwind utilities;
 
 
 

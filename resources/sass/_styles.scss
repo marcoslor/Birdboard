@@ -1,3 +1,7 @@
+body,
+button {
+  @apply .text-default;
+}
 
 .text-input {
   @apply outline-none;

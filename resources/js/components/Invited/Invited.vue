@@ -1,6 +1,7 @@
 <template>
     <v-popover class="my-auto" offset="10px">
-        <button class="tooltip-target flex material-icons m-auto outline-none" style="font-size: 41px; color: #47cdff">
+        <button class="tooltip-target flex material-icons m-auto outline-none text-shadow-default text-accent"
+                style="font-size: 41px;">
             add_circle
         </button>
         <template slot="popover">

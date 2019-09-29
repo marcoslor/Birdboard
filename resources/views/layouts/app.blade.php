@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('page')
 <div id="app">
-    <nav class="navbar bg-nav shadow-sm text-default">
+    <nav class="bg-nav shadow-sm text-default">
         <div class="container">
             <div class="flex justify-between items-center py-4">
                 <h1>
@@ -23,16 +23,18 @@
 
                 <!-- Right Side Of Navbar -->
                 <div class="ml-auto flex items-center">
+                    <theme-switcher class="mr-8">
+
+                    </theme-switcher>
                     <img src="{{ Auth::user()->gravatarUrl() }}" class="mr-2 rounded-full w-10 h-10"
                          style="max-width: unset" alt="">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button class="button" type="submit">
-                            h
+                        <button class="ml-4 button" type="submit">
                             {{ __('Logout') }}
                         </button>
                     </form>
